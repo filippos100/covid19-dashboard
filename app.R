@@ -13,7 +13,7 @@ library(viridisLite)
 options(scipen = 999)
 
 #Import data from the site.Import with tidyverse pack
-#data <- read_csv("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv")
+data <- read_csv("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv")
 #Create Date column as date class with libridate function
 data <- data %>% mutate(Date = dmy(dateRep))
 
