@@ -13,7 +13,7 @@ library(viridisLite)
 options(scipen = 999)
 
 #Import data from the site.Import with tidyverse pack
-#data <- read_csv("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv")
+data <- read_csv("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv")
 #Create Date column as date class with libridate function
 data <- data %>% mutate(Date = dmy(dateRep))
 
@@ -103,7 +103,7 @@ server <- function(input,output){
       filter(countriesAndTerritories == input$Country) %>%
       ggplot(aes(x=Date,y=cases)) +
       geom_line() +
-      geom_smooth(method = "auto",span=7) + scale_x_date(labels=date_format("%d-%m-%y")) +
+      geom_smooth(method = "auto") + scale_x_date(labels=date_format("%d-%m-%y")) +
       xlab("Date") +
       ylab("Cases") +
       ggtitle("Time Series for daily Cases with loess smooth") +
